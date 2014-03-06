@@ -14,3 +14,7 @@ for i = 1 : length(datesUnix)
 end
 ides = num2cell(1 : length(datesUnix))';
 data = [ides urlsTrunc dates];
+
+urlsUniq = unique(urlsTrunc);
+
+
