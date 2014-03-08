@@ -1,6 +1,6 @@
 temp = 0;
 for i = 1 : length(data(:,3))
-    temp(i) = data{i,3}(1);
+    temp(i) = data{i,3}(1);   
 end
 datesSort = sort(temp);
 
@@ -8,6 +8,7 @@ count = 0;
 index = 1;
 prevDate = datesSort(1);
 
+% finding visits per day
 for i = 1 : length(datesSort)
     date = datesSort(i);
     if(prevDate ~= date)
@@ -18,13 +19,12 @@ for i = 1 : length(datesSort)
     end
     count = count + 1;
 end
+% Conver date to string format
+for i = 1:length(visitsPerDay(:,1))
+ datesInStr{i} = datestr(datenum(sprintf('%f',visitsPerDay(i,1)),'yyyymmdd'),'ddmmmyy');  
+end
 
-% datastructure in visitsPerDay
-
-figure1 = figure;
-axes1 = axes('Parent',figure1,'XTickLabel',visitsPerDay(:,1));
-box(axes1,'on');
-hold(axes1,'all');
-% Create plot
-
- bar(visitsPerDay(:,2))
+% Bar Plot
+bar(visitsPerDay(:,2))
+set( gca, 'XTick',1:74,'XTickLabel',datesInStr);
+rotateXLabels(gca, 90)

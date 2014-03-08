@@ -4,6 +4,7 @@
 %dates=cell(length(datesUnix),1);
 %size(dates)
 
+load('BrowserData.mat');
 pattern = '[//]*//[^/]*';
 for i = 1 : length(datesUnix)
     %dates{i} = num2cell(loadData(datesUnix(i)));
