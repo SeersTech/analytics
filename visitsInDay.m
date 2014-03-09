@@ -1,8 +1,3 @@
-temp = 0;
-for i = 1 : length(data(:,3))
-    temp(i) = data{i,3}(1);   
-end
-datesSort = sort(temp);
 
 count = 0;
 index = 1;
